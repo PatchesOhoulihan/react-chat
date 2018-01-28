@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Message from './Message';
 
-const MessageList = ({message, author}) => (
-    <section id="message-list">
+const MessageList = ({messages}) => (
+    <section id="messages-list">
         <ul>
-            {message.map(message => (
-                <Messages 
+            {messages.map(message => (
+                <Message
                     key={message.id}
                     {...message}
                 />
@@ -22,7 +23,6 @@ MessageList.PropTypes = {
             author: PropTypes.string.isRequired
         }).isRequired
     ).isRequired
-
 }
 
 export default MessageList;

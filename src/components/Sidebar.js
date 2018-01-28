@@ -12,12 +12,12 @@ const Sidebar = ({ users }) => (
 );
 
 Sidebar.PropTypes = {
-    users: PropTypes.arrayOf({
+    users: PropTypes.arrayOf(
         PropTypes.shape({
             id: PropTypes.number.isRequired,
             name: PropTypes.string.isRequired
         }).isRequired
-    }).isRequired
-};
+    ).isRequired
+}
 
 export default Sidebar;

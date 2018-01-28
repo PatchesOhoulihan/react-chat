@@ -1,16 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Message = ({message, author}) => (
-    <p>
-        <i>{author}</i>: {message}
-    </p>
-);
+const Message = (props) => {
+    let input
 
-
-AddMessage.PropTypes = {
-    message: PropTypes.string.isRequired,
-    author: PropTypes.string.isRequired
+    return (
+        <section id="new-message">
+            <input 
+                onKeyPress={(e) => {
+                    if(e.key === 'Enter') {
+                        props.dispatch(input.value, 'Me');
+                        input.value = '';
+                    }
+                }}
+                type='text'
+                ref={(node) => {
+                    input = node;
+                }}
+            />
+        </section>
+    );
 }
 
-export default Message
+Message.PropTypes = {
+    dispatch: PropTypes.func.isRequired
+}
+
+export default Message;
